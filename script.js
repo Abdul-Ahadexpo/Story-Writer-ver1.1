@@ -39,7 +39,7 @@ document.getElementById("loadBtn").addEventListener("click", function () {
       icon: "warning",
       title: "No Story Found",
       text: "You have no saved story to load.",
-      confirmButtonColor: "#facc15", // Tailwind yellow-400
+      confirmButtonColor: "#ff9a60", // Tailwind yellow-400
     });
   }
 });
