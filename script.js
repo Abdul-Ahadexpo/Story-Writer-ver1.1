@@ -1,35 +1,53 @@
-document
-  .getElementById("downloadTxtBtn")
-  .addEventListener("click", function () {
-    const story = document.getElementById("story").value.trim();
+document.getElementById("saveBtn").addEventListener("click", function () {
+  const story = document.getElementById("story").value.trim();
 
-    if (story === "") {
-      alert("Please write something before downloading.");
-      return;
-    }
+  if (story === "") {
+    Swal.fire({
+      icon: "error",
+      title: "Oops!",
+      text: "Please write something before saving.",
+      confirmButtonColor: "#f87171", // Tailwind pink-400
+    });
+    return;
+  }
 
-    // Prompt user for filename
-    const fileName = prompt(
-      "Please enter a filename for your text file:",
-      "story.txt"
-    );
+  // Save story to localStorage
+  localStorage.setItem("story", story);
 
-    if (fileName === null) {
-      return; // User canceled prompt
-    } else if (fileName.trim() === "") {
-      alert("Filename cannot be empty.");
-      return;
-    }
-
-    // Generate and download as text file
-    downloadFile(story, "text/plain", fileName);
+  Swal.fire({
+    icon: "success",
+    title: "Success!",
+    text: "Story saved successfully!",
+    confirmButtonColor: "#34d399", // Tailwind green-400
   });
+});
+
+document.getElementById("loadBtn").addEventListener("click", function () {
+  const savedStory = localStorage.getItem("story");
+
+  if (savedStory) {
+    document.getElementById("story").value = savedStory;
+
+    Swal.fire({
+      icon: "success",
+      title: "Loaded!",
+      text: "Your story has been loaded successfully.",
+      confirmButtonColor: "#60a5fa", // Tailwind blue-400
+    });
+  } else {
+    Swal.fire({
+      icon: "warning",
+      title: "No Story Found",
+      text: "You have no saved story to load.",
+      confirmButtonColor: "#facc15", // Tailwind yellow-400
+    });
+  }
+});
 
 document.getElementById("downloadMdBtn").addEventListener("click", function () {
   const story = document.getElementById("story").value.trim();
 
   if (story === "") {
-    alert("Please write something before downloading.");
     return;
   }
 
@@ -42,7 +60,6 @@ document.getElementById("downloadMdBtn").addEventListener("click", function () {
   if (fileName === null) {
     return; // User canceled prompt
   } else if (fileName.trim() === "") {
-    alert("Filename cannot be empty.");
     return;
   }
 
@@ -71,22 +88,17 @@ document.getElementById("saveBtn").addEventListener("click", function () {
   const story = document.getElementById("story").value.trim();
 
   if (story === "") {
-    alert("Please write something before saving.");
     return;
   }
 
   // Save story to localStorage
   localStorage.setItem("story", story);
-  alert("Story saved successfully!");
 });
 
 document.getElementById("loadBtn").addEventListener("click", function () {
   const savedStory = localStorage.getItem("story");
   if (savedStory) {
     document.getElementById("story").value = savedStory;
-    alert("Story loaded successfully!");
-  } else {
-    alert("No saved story found.");
   }
 });
 
@@ -96,7 +108,6 @@ document
     const story = document.getElementById("story").value.trim();
 
     if (story === "") {
-      alert("Please write something before downloading.");
       return;
     }
 
@@ -109,7 +120,6 @@ document
     if (fileName === null) {
       return; // User canceled prompt
     } else if (fileName.trim() === "") {
-      alert("Filename cannot be empty.");
       return;
     }
 
@@ -121,7 +131,6 @@ document.getElementById("downloadMdBtn").addEventListener("click", function () {
   const story = document.getElementById("story").value.trim();
 
   if (story === "") {
-    alert("Please write something before downloading.");
     return;
   }
 
@@ -134,7 +143,6 @@ document.getElementById("downloadMdBtn").addEventListener("click", function () {
   if (fileName === null) {
     return; // User canceled prompt
   } else if (fileName.trim() === "") {
-    alert("Filename cannot be empty.");
     return;
   }
 

@@ -1,35 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Cute Story Writer</title>
-    <link rel="stylesheet" href="styles.css" />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap"
-      rel="stylesheet"
-    />
-  </head>
-  <body>
-    <header>
-      <h1>Cute Story Writer</h1>
-    </header>
-    <main>
-      <div class="container">
-        <textarea id="story" placeholder="Write your story here..."></textarea>
-        <div class="button-container">
-          <button id="saveBtn" class="saveBtn">Save</button>
-          <button id="loadBtn" class="loadBtn">Load</button>
-          <button id="downloadTxtBtn" class="downloadTxtBtn">
-            Download as Text
-          </button>
-          <button id="downloadMdBtn" class="downloadMdBtn">
-            Download as Markdown
-          </button>
-        </div>
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Cute Story Writer</title>
+
+  <link href="https://cdn.jsdelivr.net/npm/daisyui@latest/dist/full.min.css" rel="stylesheet" type="text/css" />
+  <script src="https://cdn.tailwindcss.com"></script>
+  <!-- popup -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/sweetalert2@11/dist/sweetalert2.min.css">
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+</head>
+
+<body
+  class="min-h-screen bg-gradient-to-br from-gray-100 via-gray-300 to-gray-500 animate-[gradientAnimation_15s_ease-infinite] font-sans overflow-hidden">
+  <header class="text-center py-6 bg-white shadow-md">
+    <h1 class="text-4xl font-semibold text-black">Doro Writer</h1>
+    <p class="italic text-gray-600">A stroy writing/novel site</p>
+  </header>
+  <main class="flex justify-center items-start py-12">
+    <div class="container bg-white p-6 rounded-lg shadow-lg max-w-3xl w-full md:mx-auto md:p-10">
+      <textarea id="story" placeholder="Start writing your story here..."
+        class="textarea text-black textarea-bordered w-full h-96 p-4 text-lg bg-gray-100 shadow-inner rounded-md focus:outline-none focus:ring focus:ring-indigo-400"></textarea>
+      <div class="button-container grid grid-cols-2 gap-4 mt-6 md:flex md:justify-between md:space-x-4">
+        <button id="saveBtn" class="btn btn-primary py-3   shadow-md rounded-md text-lg w-full md:flex-1">
+          Save
+        </button>
+        <button id="loadBtn" class="btn btn-secondary py-3   shadow-md rounded-md text-lg w-full md:flex-1">
+          Load
+        </button>
+        <button id="downloadTxtBtn" class="btn btn-accent   py-3 shadow-md rounded-md text-lg w-full md:flex-1">
+          Download Text
+        </button>
+        <button id="downloadMdBtn" class="btn btn-info py-3   shadow-md rounded-md text-lg w-full md:flex-1">
+          Download Markdown
+        </button>
       </div>
-    </main>
-    <div class="made-by">Made by Abdul Ahad</div>
-    <script src="script.js"></script>
-  </body>
+    </div>
+  </main>
+  <footer class="text-center mt-8 text-sm text-gray-700">
+    Made with 💩 by <a class="underline italic cursor-pointer text-blue-900 ">Noname</a>
+  </footer>
+  <script src="script.js"></script>
+
+</body>
+
+
+
 </html>
